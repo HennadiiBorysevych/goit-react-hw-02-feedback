@@ -1,9 +1,9 @@
-import FeedbackOptions from './feedbackList/FeedbackOptions ';
-import Statistics from './statisticsList/Statistics';
-import Section from './feedBackSection/Section';
+import { FeedbackOptions, Statistics, Section, Notification } from './index.js';
+
 import React from 'react';
-import Notification from './notafication/Notafication';
-const btns = ['good', 'neutral', 'bad'];
+import PropTypes from 'prop-types';
+
+const BTNS = ['good', 'neutral', 'bad'];
 
 class App extends React.Component {
   state = {
@@ -34,7 +34,7 @@ class App extends React.Component {
     return (
       <div>
         <Section title="Please leave feedback">
-          <FeedbackOptions btns={btns} onLeaveFeedback={this.onLeaveFeedback} />
+          <FeedbackOptions btns={BTNS} onLeaveFeedback={this.onLeaveFeedback} />
         </Section>
         <Section title="Statistics">
           {this.countTotalFeedback() === 0 && (
@@ -55,3 +55,11 @@ class App extends React.Component {
   }
 }
 export default App;
+
+App.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.func.isRequired,
+  positivePercentage: PropTypes.func.isRequired,
+};

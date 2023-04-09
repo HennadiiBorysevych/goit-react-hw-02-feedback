@@ -4,6 +4,8 @@ import {
   OptionItem,
   OptionButton,
 } from './FeedBackOptions.styled';
+import PropTypes from 'prop-types';
+
 class FeedbackOptions extends React.Component {
   render() {
     const { btns, onLeaveFeedback } = this.props;
@@ -21,3 +23,8 @@ class FeedbackOptions extends React.Component {
   }
 }
 export default FeedbackOptions;
+FeedbackOptions.propTypes = {
+  btns: PropTypes.arrayOf(PropTypes.string.isRequired),
+  onLeaveFeedback: PropTypes.func.isRequired,
+};
+
