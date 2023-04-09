@@ -1,7 +1,6 @@
 import { FeedbackOptions, Statistics, Section, Notification } from './index.js';
 
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const BTNS = ['good', 'neutral', 'bad'];
 
@@ -55,11 +54,3 @@ class App extends React.Component {
   }
 }
 export default App;
-
-App.propTypes = {
-  good: PropTypes.number.isRequired,
-  neutral: PropTypes.number.isRequired,
-  bad: PropTypes.number.isRequired,
-  total: PropTypes.func.isRequired,
-  positivePercentage: PropTypes.func.isRequired,
-};
